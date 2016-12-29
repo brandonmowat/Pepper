@@ -9,10 +9,24 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var viewHeader: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.viewHeader.center.y += 10.0
+        self.viewHeader.isOpaque = false
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        UIView.animate(withDuration: 0.8, animations: {
+           self.viewHeader.center.y -= 10.0
+            self.viewHeader.isOpaque = true
+        })
     }
 
     override func didReceiveMemoryWarning() {
