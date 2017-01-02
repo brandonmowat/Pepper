@@ -49,6 +49,10 @@
                                                 <constraint firstAttribute="height" constant="46" id="Tma-5L-0Ro"/>
                                                 <constraint firstAttribute="width" constant="46" id="wDi-7X-C4W"/>
                                             </constraints>
+                                            <connections>
+                                                <action selector="buttonDown:" destination="BYZ-38-t0r" eventType="touchDown" id="aUa-uf-Q25"/>
+                                                <action selector="buttonUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G7X-bv-cmq"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </view>
@@ -64,6 +68,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="BlurView" destination="56O-Zi-xpS" id="chb-An-fiM"/>
                         <outlet property="micButton" destination="HFb-xY-bJM" id="58K-3X-S10"/>
                         <outlet property="viewHeader" destination="4dY-Pp-hSO" id="N26-HW-r74"/>
                     </connections>
