@@ -16,6 +16,8 @@
 		CA58695F1E158A9B00B84F96 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA58695D1E158A9B00B84F96 /* LaunchScreen.storyboard */; };
 		CA58696A1E158A9C00B84F96 /* PepperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5869691E158A9C00B84F96 /* PepperTests.swift */; };
 		CA5869751E19ECF200B84F96 /* Hue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5869741E19ECF200B84F96 /* Hue.swift */; };
+		CAC930FD1E1DD93D00022F5C /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC930FC1E1DD93D00022F5C /* AudioController.swift */; };
+		CAC930FF1E1DD94500022F5C /* SpeechRecognitionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC930FE1E1DD94500022F5C /* SpeechRecognitionService.swift */; };
 		CAF1F7241E19FB0200EE9C6E /* background-image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAF1F7231E19FB0200EE9C6E /* background-image.jpg */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +47,9 @@
 		CA5869691E158A9C00B84F96 /* PepperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PepperTests.swift; sourceTree = "<group>"; };
 		CA58696B1E158A9C00B84F96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA5869741E19ECF200B84F96 /* Hue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hue.swift; sourceTree = "<group>"; };
+		CAC930F91E1DD8EC00022F5C /* Speech-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Speech-Bridging-Header.h"; sourceTree = "<group>"; };
+		CAC930FC1E1DD93D00022F5C /* AudioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; };
+		CAC930FE1E1DD94500022F5C /* SpeechRecognitionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionService.swift; sourceTree = "<group>"; };
 		CAF1F7231E19FB0200EE9C6E /* background-image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "background-image.jpg"; path = "../../../Downloads/background-image.jpg"; sourceTree = "<group>"; };
 		EA035684A3A8D6B90D66BBE4 /* Pods-Pepper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pepper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pepper/Pods-Pepper.debug.xcconfig"; sourceTree = "<group>"; };
 		EBFD0C97EBBFF777023A5869 /* Pods_Pepper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pepper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +122,9 @@
 				CA5869541E158A9B00B84F96 /* AppDelegate.swift */,
 				CA5869561E158A9B00B84F96 /* ViewController.swift */,
 				CA5869741E19ECF200B84F96 /* Hue.swift */,
+				CAC930FC1E1DD93D00022F5C /* AudioController.swift */,
+				CAC930FE1E1DD94500022F5C /* SpeechRecognitionService.swift */,
+				CAC930F91E1DD8EC00022F5C /* Speech-Bridging-Header.h */,
 				CA5869581E158A9B00B84F96 /* Main.storyboard */,
 				CA58695B1E158A9B00B84F96 /* Assets.xcassets */,
 				CA58695D1E158A9B00B84F96 /* LaunchScreen.storyboard */,
@@ -198,6 +206,7 @@
 				TargetAttributes = {
 					CA5869501E158A9B00B84F96 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 2HNPL835B5;
 						ProvisioningStyle = Automatic;
 					};
 					CA5869641E158A9C00B84F96 = {
@@ -345,8 +354,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAC930FF1E1DD94500022F5C /* SpeechRecognitionService.swift in Sources */,
 				CA5869571E158A9B00B84F96 /* ViewController.swift in Sources */,
 				CA5869551E158A9B00B84F96 /* AppDelegate.swift in Sources */,
+				CAC930FD1E1DD93D00022F5C /* AudioController.swift in Sources */,
 				CA5869751E19ECF200B84F96 /* Hue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -485,6 +496,7 @@
 			baseConfigurationReference = EA035684A3A8D6B90D66BBE4 /* Pods-Pepper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2HNPL835B5;
 				INFOPLIST_FILE = Pepper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -499,6 +511,7 @@
 			baseConfigurationReference = 8BF19222EB1DFF428B3484D3 /* Pods-Pepper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2HNPL835B5;
 				INFOPLIST_FILE = Pepper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

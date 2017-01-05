@@ -8,6 +8,7 @@ target 'Pepper' do
   # Pods for Pepper
 
   pod 'Alamofire', '~> 4.0'
+  pod 'googleapis', :path => '.'
 
   target 'PepperTests' do
     inherit! :search_paths
