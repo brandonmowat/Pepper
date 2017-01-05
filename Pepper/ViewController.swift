@@ -103,6 +103,7 @@ class ViewController: UIViewController, AudioControllerDelegate {
                         for result in response.resultsArray! {
                             print(result)
                             if let result = result as? StreamingRecognitionResult {
+                                self.result.text = ((result.alternativesArray[0] as! SpeechRecognitionAlternative).transcript)
                                 if result.isFinal {
                                     let resString = ((result.alternativesArray[0] as! SpeechRecognitionAlternative).transcript)
                                     self.result.text = resString

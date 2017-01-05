@@ -118,17 +118,15 @@
 		CA5869531E158A9B00B84F96 /* Pepper */ = {
 			isa = PBXGroup;
 			children = (
+				CAFE35AE1E1EF55200C0002C /* Models */,
 				CAF1F7251E19FB0600EE9C6E /* images */,
 				CA5869541E158A9B00B84F96 /* AppDelegate.swift */,
 				CA5869561E158A9B00B84F96 /* ViewController.swift */,
-				CA5869741E19ECF200B84F96 /* Hue.swift */,
-				CAC930FC1E1DD93D00022F5C /* AudioController.swift */,
-				CAC930FE1E1DD94500022F5C /* SpeechRecognitionService.swift */,
-				CAC930F91E1DD8EC00022F5C /* Speech-Bridging-Header.h */,
 				CA5869581E158A9B00B84F96 /* Main.storyboard */,
 				CA58695B1E158A9B00B84F96 /* Assets.xcassets */,
 				CA58695D1E158A9B00B84F96 /* LaunchScreen.storyboard */,
 				CA5869601E158A9B00B84F96 /* Info.plist */,
+				CAFE35AD1E1EF52A00C0002C /* Speech */,
 			);
 			path = Pepper;
 			sourceTree = "<group>";
@@ -148,6 +146,24 @@
 				CAF1F7231E19FB0200EE9C6E /* background-image.jpg */,
 			);
 			name = images;
+			sourceTree = "<group>";
+		};
+		CAFE35AD1E1EF52A00C0002C /* Speech */ = {
+			isa = PBXGroup;
+			children = (
+				CAC930FC1E1DD93D00022F5C /* AudioController.swift */,
+				CAC930FE1E1DD94500022F5C /* SpeechRecognitionService.swift */,
+				CAC930F91E1DD8EC00022F5C /* Speech-Bridging-Header.h */,
+			);
+			name = Speech;
+			sourceTree = "<group>";
+		};
+		CAFE35AE1E1EF55200C0002C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CA5869741E19ECF200B84F96 /* Hue.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
