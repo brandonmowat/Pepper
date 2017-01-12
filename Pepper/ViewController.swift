@@ -19,11 +19,21 @@ class ViewController: UIViewController, AudioControllerDelegate {
     @IBOutlet weak var viewHeader: UILabel!
     @IBOutlet weak var micButton: UIButton!
     @IBOutlet weak var BlurView: UIVisualEffectView!
-    @IBOutlet weak var result: UILabel!
+    @IBOutlet weak var result: UITextView!
+    
     
     var audioData: NSMutableData!
+    var micButtonIsActive: Bool = false
     
     @IBAction func buttonDown(_ sender: UIButton) {
+        if (self.micButtonIsActive) {
+        
+            self.stopAudio()
+            self.micButtonIsActive = false
+            return
+            
+        }
+        self.micButtonIsActive = true
         UIView.animate(withDuration: 0.3, animations: {
             self.updateBlur(.dark)
             self.micButton.backgroundColor = .white
@@ -41,6 +51,7 @@ class ViewController: UIViewController, AudioControllerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         AudioController.sharedInstance.delegate = self
+        
     }
     
     // before view loads
@@ -71,6 +82,7 @@ class ViewController: UIViewController, AudioControllerDelegate {
     
     // Stop audio stream
     func stopAudio() {
+        self.micButtonIsActive = false
         UIView.animate(withDuration: 0.3, animations: {
             self.updateBlur(.light)
             self.micButton.backgroundColor = .black
@@ -86,7 +98,6 @@ class ViewController: UIViewController, AudioControllerDelegate {
     // Process the incoming data from the mic
     func processSampleData(_ data: Data) -> Void {
         audioData.append(data)
-        
         // We recommend sending samples in 100ms chunks
         let chunkSize : Int /* bytes/chunk */ = Int(0.1 /* seconds/chunk */
             * Double(SAMPLE_RATE) /* samples/second */
@@ -103,10 +114,10 @@ class ViewController: UIViewController, AudioControllerDelegate {
                         for result in response.resultsArray! {
                             print(result)
                             if let result = result as? StreamingRecognitionResult {
-                                self.result.text = ((result.alternativesArray[0] as! SpeechRecognitionAlternative).transcript)
+                                //self.result.text = ((result.alternativesArray[0] as! SpeechRecognitionAlternative).transcript)
                                 if result.isFinal {
                                     let resString = ((result.alternativesArray[0] as! SpeechRecognitionAlternative).transcript)
-                                    self.result.text = resString
+                                    //self.result.text = resString
                                     self.doTheThings(inputString: resString!)
                                     finished = true
                                 }
@@ -128,14 +139,15 @@ class ViewController: UIViewController, AudioControllerDelegate {
         case "turn on the living room light":
             self.hue.turnOnLight("6")
         case "turn off the lights":
-            self.hue.turnOffLight("4")
-            self.hue.turnOffLight("5")
-            self.hue.turnOffLight("6")
+            self.hue.turnOffAllLights()
+            let synthesizer = AVSpeechSynthesizer()
+            let utterance = AVSpeechUtterance(string: "Okay Brandon, I'm turning off the lights.")
+            synthesizer.speak(utterance)
         case "turn on the lights":
-            self.result.text = "Okay, I'm turning off the lights"
-            self.hue.turnOnLight("4")
-            self.hue.turnOnLight("5")
-            self.hue.turnOnLight("6")
+            self.hue.turnOnAllLights()
+            let synthesizer = AVSpeechSynthesizer()
+            let utterance = AVSpeechUtterance(string: "Okay Brandon, I'm turning on the lights.")
+            synthesizer.speak(utterance)
         default:
             self.result.text = "I'm not sure what you need me to do 😔"
             

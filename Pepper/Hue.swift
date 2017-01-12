@@ -17,15 +17,45 @@ class Hue {
         
     }
     
-    public func getHueData() {
+    func getHueData(completion: @escaping (_ data: Any) -> Void) {
     
-        Alamofire.request("https://httpbin.org/put")
-            .responseString { response in
-                print("Response String: \(response.result.value)")
-            }
+        Alamofire.request("http://192.168.0.10/api/Od-QyQU7aWiPNJSEWpkgKV7nDh3QMpieLmcjqo6q")
             .responseJSON { response in
                 print("Response JSON: \(response.result.value)")
+                completion(response.result.value ?? "")
             }
+        
+    }
+    
+    public func turnOffAllLights() {
+    
+        self.getHueData(completion: {(data: Any) -> Void in
+            
+            let lightsData = (data as! NSDictionary)["lights"]
+            
+            for (key, _) in lightsData as! NSDictionary {
+            
+                self.turnOffLight(key as! String)
+            
+            }
+        
+        })
+        
+    }
+    
+    public func turnOnAllLights() {
+        
+        self.getHueData(completion: {(data: Any) -> Void in
+            
+            let lightsData = (data as! NSDictionary)["lights"]
+            
+            for (key, _) in lightsData as! NSDictionary {
+                
+                self.turnOnLight(key as! String)
+                
+            }
+            
+        })
         
     }
     
@@ -34,9 +64,6 @@ class Hue {
         let parameters: Parameters = ["on": false]
 
         Alamofire.request("\(baseURL)/lights/\(lightId)/state", method: .put, parameters: parameters, encoding: JSONEncoding.default)
-            .responseString { response in
-                print("Response String: \(response.result.value)")
-            }
             .responseJSON { response in
                 print("Response JSON: \(response.result.value)")
             }
@@ -48,9 +75,6 @@ class Hue {
         let parameters: Parameters = ["on": true]
         
         Alamofire.request("\(baseURL)/lights/\(lightId)/state", method: .put, parameters: parameters, encoding: JSONEncoding.default)
-            .responseString { response in
-                print("Response String: \(response.result.value)")
-            }
             .responseJSON { response in
                 print("Response JSON: \(response.result.value)")
         }
