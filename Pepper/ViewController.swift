@@ -140,14 +140,12 @@ class ViewController: UIViewController, AudioControllerDelegate {
             self.hue.turnOnLight("6")
         case "turn off the lights":
             self.hue.turnOffAllLights()
-            let synthesizer = AVSpeechSynthesizer()
-            let utterance = AVSpeechUtterance(string: "Okay Brandon, I'm turning off the lights.")
-            synthesizer.speak(utterance)
         case "turn on the lights":
             self.hue.turnOnAllLights()
-            let synthesizer = AVSpeechSynthesizer()
-            let utterance = AVSpeechUtterance(string: "Okay Brandon, I'm turning on the lights.")
-            synthesizer.speak(utterance)
+        case "turn up the living room", "brighten the living room":
+            self.hue.changeBrightness("up", "6", 50)
+        case "dim the living room", "dim the living room light", "turn down the living room light":
+            self.hue.changeBrightness("down", "6", 50)
         default:
             self.result.text = "I'm not sure what you need me to do 😔"
             

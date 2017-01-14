@@ -48,8 +48,17 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xP2-x8-G1t" propertyAccessControl="none">
+                                        <rect key="frame" x="8" y="170" width="359" height="170"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="170" id="89f-Yk-kKq"/>
+                                            <constraint firstAttribute="width" constant="359" id="yW1-2Z-4mn"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7b-qI-s7h">
-                                        <rect key="frame" x="164" y="511" width="46" height="46"/>
+                                        <rect key="frame" x="164" y="585" width="46" height="46"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="46" id="HwZ-fX-Z7G"/>
@@ -60,15 +69,6 @@
                                             <action selector="buttonUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZN7-EV-ptq"/>
                                         </connections>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="test" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xP2-x8-G1t" propertyAccessControl="none">
-                                        <rect key="frame" x="8" y="170" width="359" height="170"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="170" id="89f-Yk-kKq"/>
-                                            <constraint firstAttribute="width" constant="359" id="yW1-2Z-4mn"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="xP2-x8-G1t" firstAttribute="top" secondItem="EcO-Uu-LaT" secondAttribute="bottom" constant="20" id="82W-20-EVl"/>
@@ -79,7 +79,7 @@
                         <constraints>
                             <constraint firstItem="O7b-qI-s7h" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3At-H2-rAW"/>
                             <constraint firstItem="EcO-Uu-LaT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="D3D-Oo-kpw"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="O7b-qI-s7h" secondAttribute="bottom" constant="110" id="M0E-1U-EKL"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="O7b-qI-s7h" secondAttribute="bottom" constant="36" id="M0E-1U-EKL"/>
                             <constraint firstItem="EcO-Uu-LaT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QuJ-XY-M6R"/>
                             <constraint firstItem="xP2-x8-G1t" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ias-Wr-F7O"/>
                         </constraints>

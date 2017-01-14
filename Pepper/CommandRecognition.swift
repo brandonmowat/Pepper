@@ -14,10 +14,12 @@ class CommandRecognition {
     
     init() {}
     
-    private func hueOnOff(_ on: Bool) {
+    private func hueOnOff(_ on: Bool) {}
+    
+    public func recognizeCommand(_ command: String) {
     
         
-        
+    
     }
     
 }
