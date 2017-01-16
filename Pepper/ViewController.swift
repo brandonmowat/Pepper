@@ -15,6 +15,7 @@ let SAMPLE_RATE = 16000
 class ViewController: UIViewController, AudioControllerDelegate {
     
     let hue = Hue() // initialize hue
+    let user = User() // initialize user
     
     @IBOutlet weak var viewHeader: UILabel!
     @IBOutlet weak var micButton: UIButton!
@@ -51,7 +52,7 @@ class ViewController: UIViewController, AudioControllerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         AudioController.sharedInstance.delegate = self
-        
+        self.user.updateInternalIP()
     }
     
     // before view loads
@@ -144,8 +145,15 @@ class ViewController: UIViewController, AudioControllerDelegate {
             self.hue.turnOnAllLights()
         case "turn up the living room", "brighten the living room":
             self.hue.changeBrightness("up", "6", 50)
-        case "dim the living room", "dim the living room light", "turn down the living room light":
+        case "in the living room", "dim the living room", "dim the living room light", "turn down the living room light":
             self.hue.changeBrightness("down", "6", 50)
+        case "turn up the bedroom", "brighten the bedroom":
+            self.hue.changeBrightness("up", "4", 60)
+            self.hue.changeBrightness("up", "5", 60)
+        case "dim the bedroom", "turn down the bedroom", "in the bedroom":
+            self.hue.changeBrightness("down", "4", 60)
+            self.hue.changeBrightness("down", "5", 60)
+
         default:
             self.result.text = "I'm not sure what you need me to do 😔"
             

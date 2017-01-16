@@ -11,22 +11,30 @@ import Alamofire
 
 class Hue {
     
-    var baseURL: String = "http://192.168.0.14/api/Od-QyQU7aWiPNJSEWpkgKV7nDh3QMpieLmcjqo6q"
+    let user = User()
+    var baseURL: String?
     
     init() {
         
+        if let ip = user.getInternalIP() {
+            self.baseURL = "http://\(ip)/api/Od-QyQU7aWiPNJSEWpkgKV7nDh3QMpieLmcjqo6q"
+        }
+        
     }
     
+    // get data from Hue Base
     func getHueData(completion: @escaping (_ data: Any) -> Void) {
     
-        Alamofire.request(self.baseURL)
+        Alamofire.request(self.baseURL!)
             .responseJSON { response in
+                print(response)
                 print("Light Data: \(response.result.value)")
                 completion(response.result.value ?? "")
             }
         
     }
     
+    // turn off all the lights
     public func turnOffAllLights() {
     
         self.getHueData(completion: {(data: Any) -> Void in
@@ -43,6 +51,7 @@ class Hue {
         
     }
     
+    // turn on all the lights
     public func turnOnAllLights() {
         
         self.getHueData(completion: {(data: Any) -> Void in
@@ -59,28 +68,31 @@ class Hue {
         
     }
     
+    // Turn off a light with a specific id
     public func turnOffLight(_ lightId: String) {
         
         let parameters: Parameters = ["on": false]
 
-        Alamofire.request("\(baseURL)/lights/\(lightId)/state", method: .put, parameters: parameters, encoding: JSONEncoding.default)
+        Alamofire.request("\(self.baseURL!)/lights/\(lightId)/state", method: .put, parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { response in
                 print("Response JSON: \(response.result.value)")
             }
     
     }
     
+    // turn on a specific light with id, lightId
     public func turnOnLight(_ lightId: String) {
         
         let parameters: Parameters = ["on": true] // Parameters is an Alamofire object
         
-        Alamofire.request("\(baseURL)/lights/\(lightId)/state", method: .put, parameters: parameters, encoding: JSONEncoding.default)
+        Alamofire.request("\(self.baseURL!)/lights/\(lightId)/state", method: .put, parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { response in
                 print("Response JSON: \(response.result.value)")
         }
         
     }
     
+    // change the 'bri' of a specific light
     public func changeBrightness(_ upOrDown: String, _ lightId: String, _ amount: Int) {
         
         self.getHueData(completion: {(data: Any) -> Void in
@@ -107,7 +119,7 @@ class Hue {
                 
                 let parameters: Parameters = ["bri": new_bri]
                 
-                Alamofire.request("\(self.baseURL)/lights/\(lightId)/state", method: .put, parameters: parameters, encoding: JSONEncoding.default)
+                Alamofire.request("\(self.baseURL!)/lights/\(lightId)/state", method: .put, parameters: parameters, encoding: JSONEncoding.default)
                     .responseJSON { response in
                         print("Response JSON: \(response.result.value)")
                 }
