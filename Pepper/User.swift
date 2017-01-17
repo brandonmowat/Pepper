@@ -25,7 +25,12 @@ class User {
     func updateInternalIP() {
         Alamofire.request("https://www.meethue.com/api/nupnp")
             .responseJSON { response in
-                if let ip = ((response.result.value) as! Array<Dictionary<AnyHashable, Any>>)[0]["internalipaddress"] {
+                if let ipArray = ((response.result.value) as! Array<Dictionary<AnyHashable, Any>>?) {
+                    if ipArray.count == 0 {
+                        print("could not retrieve hue bqse ip")
+                        return
+                    }
+                    let ip = ipArray[0]["internalipaddress"]!
                     print(ip)
                     self.defaults.set(ip, forKey: "ipAddress")
                 }

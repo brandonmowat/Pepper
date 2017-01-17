@@ -19,6 +19,7 @@
 		CAC930FD1E1DD93D00022F5C /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC930FC1E1DD93D00022F5C /* AudioController.swift */; };
 		CAC930FF1E1DD94500022F5C /* SpeechRecognitionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC930FE1E1DD94500022F5C /* SpeechRecognitionService.swift */; };
 		CAD13E7B1E2C7C0400FBED00 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD13E7A1E2C7C0400FBED00 /* User.swift */; };
+		CAD13E7D1E2D935B00FBED00 /* Speak.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD13E7C1E2D935B00FBED00 /* Speak.swift */; };
 		CAF1F7241E19FB0200EE9C6E /* background-image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAF1F7231E19FB0200EE9C6E /* background-image.jpg */; };
 		CAFE35B01E1FEA5400C0002C /* CommandRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFE35AF1E1FEA5400C0002C /* CommandRecognition.swift */; };
 /* End PBXBuildFile section */
@@ -53,6 +54,7 @@
 		CAC930FC1E1DD93D00022F5C /* AudioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; };
 		CAC930FE1E1DD94500022F5C /* SpeechRecognitionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionService.swift; sourceTree = "<group>"; };
 		CAD13E7A1E2C7C0400FBED00 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CAD13E7C1E2D935B00FBED00 /* Speak.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Speak.swift; sourceTree = "<group>"; };
 		CAF1F7231E19FB0200EE9C6E /* background-image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "background-image.jpg"; path = "../../../Downloads/background-image.jpg"; sourceTree = "<group>"; };
 		CAFE35AF1E1FEA5400C0002C /* CommandRecognition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandRecognition.swift; sourceTree = "<group>"; };
 		EA035684A3A8D6B90D66BBE4 /* Pods-Pepper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pepper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pepper/Pods-Pepper.debug.xcconfig"; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				CAD13E7A1E2C7C0400FBED00 /* User.swift */,
 				CAFE35AF1E1FEA5400C0002C /* CommandRecognition.swift */,
 				CA5869741E19ECF200B84F96 /* Hue.swift */,
+				CAD13E7C1E2D935B00FBED00 /* Speak.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 			files = (
 				CAC930FF1E1DD94500022F5C /* SpeechRecognitionService.swift in Sources */,
 				CA5869571E158A9B00B84F96 /* ViewController.swift in Sources */,
+				CAD13E7D1E2D935B00FBED00 /* Speak.swift in Sources */,
 				CA5869551E158A9B00B84F96 /* AppDelegate.swift in Sources */,
 				CAC930FD1E1DD93D00022F5C /* AudioController.swift in Sources */,
 				CA5869751E19ECF200B84F96 /* Hue.swift in Sources */,
