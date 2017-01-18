@@ -16,6 +16,7 @@ class ViewController: UIViewController, AudioControllerDelegate {
     
     let hue = Hue() // initialize hue
     let user = User() // initialize user
+    let speak = Speak() // init speak object
     
     @IBOutlet weak var viewHeader: UILabel!
     @IBOutlet weak var micButton: UIButton!
@@ -153,7 +154,9 @@ class ViewController: UIViewController, AudioControllerDelegate {
         case "dim the bedroom", "turn down the bedroom", "in the bedroom":
             self.hue.changeBrightness("down", "4", 60)
             self.hue.changeBrightness("down", "5", 60)
-
+        case "goodnight pepper", "good night pepper", "goodnight", "good night":
+            //self.hue.turnOffAllLights()
+            self.speak.say(sentence: "Goodnight.")
         default:
             self.result.text = "I'm not sure what you need me to do 😔"
             

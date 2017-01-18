@@ -13,7 +13,7 @@ class Speak {
     func say(sentence: String) {
         let utterance = AVSpeechUtterance(string: sentence)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        utterance.pitchMultiplier = 1.2
+        utterance.pitchMultiplier = 1.3
         utterance.rate = 0.5
         
         let synthesizer = AVSpeechSynthesizer()

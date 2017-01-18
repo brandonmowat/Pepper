@@ -14,12 +14,12 @@ class CommandRecognition {
     
     init() {}
     
-    private func hueOnOff(_ on: Bool) {}
-    
     public func recognizeCommand(_ command: String) {
-    
         
-    
+        let commandWordsArray = command.characters.split(separator: " ")
+        
+        // TODO: parse commandWordsArray to identify greetings and other shit...
+        
     }
     
 }
