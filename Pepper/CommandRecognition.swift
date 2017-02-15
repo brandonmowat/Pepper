@@ -33,7 +33,7 @@ class CommandRecognition {
         return arr
     }
     
-    func parseCommandString(_ command: String) -> (Target, Action) {
+    public func parseCommandString(_ command: String) -> (Target, Action) {
         
         let commandWordsArray = convertToStringArray(command.characters.split(separator: " "))
         

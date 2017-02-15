@@ -20,7 +20,6 @@
 		CAC930FF1E1DD94500022F5C /* SpeechRecognitionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC930FE1E1DD94500022F5C /* SpeechRecognitionService.swift */; };
 		CAD13E7B1E2C7C0400FBED00 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD13E7A1E2C7C0400FBED00 /* User.swift */; };
 		CAD13E7D1E2D935B00FBED00 /* Speak.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD13E7C1E2D935B00FBED00 /* Speak.swift */; };
-		CAF1F7241E19FB0200EE9C6E /* background-image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAF1F7231E19FB0200EE9C6E /* background-image.jpg */; };
 		CAFE35B01E1FEA5400C0002C /* CommandRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFE35AF1E1FEA5400C0002C /* CommandRecognition.swift */; };
 /* End PBXBuildFile section */
 
@@ -265,7 +264,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAF1F7241E19FB0200EE9C6E /* background-image.jpg in Resources */,
 				CA58695F1E158A9B00B84F96 /* LaunchScreen.storyboard in Resources */,
 				CA58695C1E158A9B00B84F96 /* Assets.xcassets in Resources */,
 				CA58695A1E158A9B00B84F96 /* Main.storyboard in Resources */,

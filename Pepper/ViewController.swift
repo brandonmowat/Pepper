@@ -17,6 +17,7 @@ class ViewController: UIViewController, AudioControllerDelegate {
     let hue = Hue() // initialize hue
     let user = User() // initialize user
     let speak = Speak() // init speak object
+    let commandRecognition = CommandRecognition()
     
     @IBOutlet weak var viewHeader: UILabel!
     @IBOutlet weak var micButton: UIButton!
@@ -135,32 +136,57 @@ class ViewController: UIViewController, AudioControllerDelegate {
     }
     
     func doTheThings(inputString input: String) {
-        switch input {
-        case "turn off the living room light":
-            self.hue.turnOffLight("6")
-        case "turn on the living room light":
-            self.hue.turnOnLight("6")
-        case "turn off the lights":
-            self.hue.turnOffAllLights()
-        case "turn on the lights":
+        let targetAction = commandRecognition.parseCommandString(input)
+        switch targetAction {
+        case (.all, .on):
             self.hue.turnOnAllLights()
-        case "turn up the living room", "brighten the living room":
-            self.hue.changeBrightness("up", "6", 50)
-        case "in the living room", "dim the living room", "dim the living room light", "turn down the living room light":
+        case (.all, .off):
+            self.hue.turnOffAllLights()
+        case (.living, .on):
+            self.hue.turnOnLight("6")
+        case (.living, .off):
+            self.hue.turnOffLight("6")
+        case (.bedroom, .on):
+            self.hue.turnOnLight("4")
+            self.hue.turnOnLight("5")
+            self.hue.turnOnLight("6")
+        case (.bedroom, .off):
+            self.hue.turnOffLight("4")
+            self.hue.turnOffLight("5")
+            self.hue.turnOffLight("6")
+        case (.living, .down):
             self.hue.changeBrightness("down", "6", 50)
-        case "turn up the bedroom", "brighten the bedroom":
-            self.hue.changeBrightness("up", "4", 60)
-            self.hue.changeBrightness("up", "5", 60)
-        case "dim the bedroom", "turn down the bedroom", "in the bedroom":
-            self.hue.changeBrightness("down", "4", 60)
-            self.hue.changeBrightness("down", "5", 60)
-        case "goodnight pepper", "good night pepper", "goodnight", "good night":
-            //self.hue.turnOffAllLights()
-            self.speak.say(sentence: "Goodnight.")
+        case (.living, .up):
+            self.hue.changeBrightness("up", "6", 50)
         default:
-            self.result.text = "I'm not sure what you need me to do 😔"
-            
+            break
         }
+//        switch input {
+//        case "turn off the living room light":
+//            self.hue.turnOffLight("6")
+//        case "turn on the living room light":
+//            self.hue.turnOnLight("6")
+//        case "turn off the lights":
+//            self.hue.turnOffAllLights()
+//        case "turn on the lights":
+//            self.hue.turnOnAllLights()
+//        case "turn up the living room", "brighten the living room":
+//            self.hue.changeBrightness("up", "6", 50)
+//        case "in the living room", "dim the living room", "dim the living room light", "turn down the living room light":
+//            self.hue.changeBrightness("down", "6", 50)
+//        case "turn up the bedroom", "brighten the bedroom":
+//            self.hue.changeBrightness("up", "4", 60)
+//            self.hue.changeBrightness("up", "5", 60)
+//        case "dim the bedroom", "turn down the bedroom", "in the bedroom":
+//            self.hue.changeBrightness("down", "4", 60)
+//            self.hue.changeBrightness("down", "5", 60)
+//        case "goodnight pepper", "good night pepper", "goodnight", "good night":
+//            //self.hue.turnOffAllLights()
+//            self.speak.say(sentence: "Goodnight.")
+//        default:
+//            self.result.text = "I'm not sure what you need me to do 😔"
+//            
+//        }
     }
     
     /**
